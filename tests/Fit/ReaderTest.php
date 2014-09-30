@@ -10,8 +10,14 @@ class ReaderTest extends \PHPUnit_Framework_TestCase
         $this->reader = new Reader(false);
     }
 
-    public function testFalse()
+    public function testReaderGolderMaster()
     {
-        $this->assertTrue(false);
+        $fitFilePath = "tests/files/47695708.FIT";
+        $this->reader->parseFile($fitFilePath);
+        $this->assertEquals(114, count($this->reader->records));
+        $this->assertArrayHasKey('header_size', $this->reader->file_header);
+        $this->assertArrayHasKey('protocol_version', $this->reader->file_header);
+        $this->assertArrayHasKey('data_size', $this->reader->file_header);
+        $this->assertArrayHasKey('data_type', $this->reader->file_header);
     }
 }

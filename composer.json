@@ -11,6 +11,10 @@
     "autoload": {
         "psr-4": {
             "Fit\\": "src/"
-        }
+        },
+        "files": [
+            "src/Zend_Io_Reader.php",
+            "src/Zend_Io_Writer.php"
+        ]
     }
 }
