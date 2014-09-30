@@ -1,0 +1,16 @@
+{
+    "name": "edelprino/fit-bit",
+    "authors": [
+        {
+            "name": "Ettore Delprino",
+            "email": "edelprino@gmail.com"
+        }
+    ],
+    "require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Fit\\": "src/"
+        }
+    }
+}
