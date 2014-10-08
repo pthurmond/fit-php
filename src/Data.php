@@ -38,25 +38,12 @@ require_once __DIR__.'/Enums.php';
 class Data
 {
 
-    /**
-     * Convert semicircles to degrees.
-     * @param int $semicircles
-     * @return decimal
-     */
-    public static function positionToDegrees($semicircles)
-    {
-        return number_format(round($semicircles / (pow(2, 31) / 180), 6, PHP_ROUND_HALF_EVEN), 6, '.', '');
-    }
 
     /**
      * Convert degrees to semicircles.
      * @param decimal $degrees
      * @return int
      */
-    public static function positionToSemicircles($degrees)
-    {
-        return round($degrees * (pow(2, 31) / 180), 0, PHP_ROUND_HALF_EVEN);
-    }
 
     /**
      * Convert Garmin epoch time to unix timestamp.

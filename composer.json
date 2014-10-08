@@ -14,7 +14,8 @@
         },
         "files": [
             "src/Zend_Io_Reader.php",
-            "src/Zend_Io_Writer.php"
+            "src/Zend_Io_Writer.php",
+            "src/functions.php"
         ]
     }
 }

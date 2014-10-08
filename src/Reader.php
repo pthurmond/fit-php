@@ -136,7 +136,7 @@ class Reader extends \Fit\Core
     protected function readRecordHeader()
     {
         $byte = $this->reader->readUInt8();
-        $this->headerbits = self::inttobar($byte);
+        $this->headerbits = integerToBooleanArray($byte);
         if ($this->headerbits[7] === false) {
             //normal header
             $record_header = array(
@@ -181,7 +181,7 @@ class Reader extends \Fit\Core
                 'size'              => $this->reader->readUInt8(),
                 'base_type'         => $this->reader->readUInt8(),
             );
-            $base_type_bits = self::inttobar($field['base_type']);
+            $base_type_bits = integerToBooleanArray($field['base_type']);
             $base_type = array(
                 'endian_ability'    => $base_type_bits[7], //0 - for single byte data 1 - if base type has endianness (i.e. base type is 2 or more bytes)
                 'base_type_number'  => self::bartoint(array_slice($base_type_bits, 0, 4)),

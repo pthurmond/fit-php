@@ -71,23 +71,6 @@ abstract class Core
     );
 
     /**
-     * Convert an integer to a bool-array (bar)
-     * @param int $x
-     * @return bool[]
-     */
-    public static function inttobar($x)
-    {
-        return array_reverse(
-            array_map(
-                function ($v) {
-                    return (bool)$v;
-                },
-                str_split(str_pad(decbin($x), 16, '0', STR_PAD_LEFT))
-            )
-        );
-    }
-
-    /**
      * Convert a bool-array to it's integer representation
      * @param bool[] $bs
      * @return int
