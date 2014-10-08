@@ -11,7 +11,7 @@ class ReaderTest extends \PHPUnit_Framework_TestCase
         if (is_file($fitFilePath)) {
             $handle = @fopen($fitFilePath, 'rb');
         }
-        $reader = new \Zend_Io_Reader($handle);
+        $reader = new Zend_Io_Reader($handle);
         $this->reader = new Reader($reader);
     }
 

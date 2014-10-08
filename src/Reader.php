@@ -71,7 +71,7 @@ class Reader extends \Fit\Core
      */
     protected $file_type;
 
-    public function __construct(\Zend_Io_Reader $reader)
+    public function __construct(IoReader $reader)
     {
         parent::__construct(false);
         $this->reader = $reader;
@@ -209,14 +209,8 @@ class Reader extends \Fit\Core
      */
     protected function readRecords()
     {
-        if ($this->debug) {
-            static::$log->add('<table style="background:black;">');
-        }
         while ($this->reader->getOffset() - $this->file_header['header_size'] < $this->file_header['data_size']) {
             $this->readRecord();
-        }
-        if ($this->debug) {
-            static::$log->add('</table>');
         }
     }
 
@@ -308,37 +302,6 @@ class Reader extends \Fit\Core
                 }
             }
             $this->records[] = $data;
-        }
-        if ($this->debug) {
-            $style = 'padding:1px 3px;background:white;';
-            $style2 = 'padding:1px 3px;background:lightgrey;';
-            $style3 = 'padding:1px 3px;background:darkgrey;';
-            static::$log->add(
-                '<tr>
-                    <td style="'.$style.'">'.intval($this->headerbits[7]).'</td>
-                    <td style="'.$style2.'">'.intval($this->headerbits[6]).'</td>
-                    <td style="'.$style.'">'.intval($this->headerbits[5]).'</td>
-                    <td style="'.$style.'">'.intval($this->headerbits[4]).'</td>
-                    <td style="'.$style2.'">'.intval($this->headerbits[3]).'</td>
-                    <td style="'.$style2.'">'.intval($this->headerbits[2]).'</td>
-                    <td style="'.$style2.'">'.intval($this->headerbits[1]).'</td>
-                    <td style="'.$style2.'">'.intval($this->headerbits[0]).'</td>
-                    <td style="'.$style3.'">'.$local_msg_type.'</td>
-                    <td style="'.$style3.'">'.$def['global_msg_number'].'</td>
-                    <td style="'.$style3.'">'.$this->file_type.'</td>'
-            );
-            if (isset($data)) {
-                foreach ($data as $k => $d) {
-                    $v = $d['value'];
-                    if (stripos($k, 'time') !== false && stripos($k, 'total') === false) {
-                        $v = strftime('%FT%H:%M:%S%z', \Fit\Data::timeToUnix($v));
-                    } elseif ($d['unit'] === 'deg') {
-                        $v = \Fit\Data::positionToDegrees($v);
-                    }
-                    static::$log->add('<td style="'.$style.'">'.$k.': '.$v.$d['unit'].'</td>');
-                }
-            }
-            static::$log->add('</tr>');
         }
     }
 }

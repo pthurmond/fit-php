@@ -1,4 +1,6 @@
 <?php
+namespace Fit;
+
 /**
  * Zend Framework
  *
@@ -32,7 +34,7 @@
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id$
  */
-class Zend_Io_Reader
+class Zend_Io_Reader implements IoReader
 {
     const MACHINE_ENDIAN_ORDER = 0;
     const LITTLE_ENDIAN_ORDER  = 1;
@@ -69,7 +71,7 @@ class Zend_Io_Reader
     {
         if (!is_resource($fd) ||
             !in_array(get_resource_type($fd), array('stream'))) {
-            throw new Zend_Io_Exception
+            throw new \Zend_Io_Exception
                 ('Invalid resource type (only resources of type stream are supported)');
         }
 
@@ -108,7 +110,7 @@ class Zend_Io_Reader
     public function getOffset()
     {
         if ($this->_fd === null) {
-            throw new Zend_Io_Exception('Cannot operate on a closed stream');
+            throw new \Zend_Io_Exception('Cannot operate on a closed stream');
         }
         return ftell($this->_fd);
     }
@@ -877,10 +879,10 @@ class Zend_Io_Reader
             call_user_func
                 (array($this, 'set' . ucfirst(strtolower($name))), $value);
         } else {
-            throw new Zend_Io_Exception('Unknown field: ' . $name);
+            throw new \Zend_Io_Exception('Unknown field: ' . $name);
         }
     }
 }
 if (false === class_exists('Zend_Io_Exception', false)) {
-	class Zend_Io_Exception extends Exception {}
+	class Zend_Io_Exception extends \Exception {}
 }
