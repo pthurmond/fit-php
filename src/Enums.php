@@ -29,6 +29,7 @@ class Activity {
     const manual            = 0;
     const auto_multi_sport  = 1;
 }
+
 class ActivityLevel {
     const low = 0;
     const medium = 1;
