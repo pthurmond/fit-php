@@ -1,9 +1,13 @@
 {
-    "name": "edelprino/fit-bit",
+    "name": "pthurmond/fit-bit",
     "authors": [
         {
             "name": "Ettore Delprino",
             "email": "edelprino@gmail.com"
+        },
+        {
+            "name": "Patrick Thurmond",
+            "email": "p_thurmond@yahoo.com"
         }
     ],
     "require": {
