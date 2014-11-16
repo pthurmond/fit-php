@@ -1,5 +1,8 @@
 {
-    "name": "pthurmond/fit-bit",
+    "name": "pthurmond/fit-php",
+    "description": "Tools to view and parse Garmin FIT files.",
+    "keywords": ["garmin", "fit"],
+    "license": "MIT",
     "authors": [
         {
             "name": "Ettore Delprino",
