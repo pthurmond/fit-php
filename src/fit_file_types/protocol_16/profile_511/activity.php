@@ -137,7 +137,9 @@ return array(
 				array('grade',				9,		1,		'%',	\Fit\Core::SINT16	,2),
 				array('resistance',			10,		1,		'',		\Fit\Core::UINT8	,1),
 				array('time_from_course',	11,		0.01,	's',	\Fit\Core::SINT32	,4),
-				array('temperature',		13,		1,		'deg.C',\Fit\Core::UINT8	,1),
+				array('temperature',		13,		1,		'deg.C',\Fit\Core::UINT8,	,1),
+				array('vertical_oscillation',	39,		0.1,		'mm',\Fit\Core::UINT16	,2),
+				array('stance_time',		41,		0.1,		'ms',\Fit\Core::UINT16	,2),
 			),
 		),
 		array(
